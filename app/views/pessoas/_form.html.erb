@@ -1,0 +1,24 @@
+<%= form_for(@pessoa) do |f| %>
+  <% if @pessoa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pessoa.errors.count, "error") %> prohibited this pessoa from being saved:</h2>
+
+      <ul>
+      <% @pessoa.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %><br>
+    <% 10.times do |i| %>
+      <%= select_tag "habilidades#{i}", options_from_collection_for_select(Habilidade.all, "id", "nome")%> <%= text_field_tag "nivel#{i}", 0, maxlength: 1 %><br>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

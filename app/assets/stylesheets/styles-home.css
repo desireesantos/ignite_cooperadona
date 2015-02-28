@@ -1,0 +1,45 @@
+.coluna-1 {
+  width: 30%;
+  border: 2px solid black;
+  margin-top: 2%;
+  display: inline-block;
+  text-align: center;
+
+}
+
+ul {   
+  list-style: none;
+  border: 2px solid black;
+  background: green;
+  margin: 5%;
+
+}
+
+.coluna-2 {
+  width: 30%;
+  border: 2px solid black;
+  margin-top: 2%;
+  display: inline-block;
+  text-align: center;
+}
+
+.coluna-3 {
+  width: 30%;
+  border: 2px solid black;
+  margin-top: 2%;
+  display: inline-block; 
+  text-align: center;
+
+}
+
+body {
+  margin: 0;
+}
+
+fieldset {
+  padding: 10%;
+}
+
+.teste {
+  margin-left: 4%;
+}
