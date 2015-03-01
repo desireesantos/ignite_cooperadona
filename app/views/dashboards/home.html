@@ -3,28 +3,62 @@
 <head>
   <title>CooperaDona</title>
   <meta charset="UTF-8"/>
-  <link rel="stylesheet" type="text/css" href="styles-home.css">
+  <link rel="stylesheet" type="text/css" href="dashboard.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+  <script>
+    $(function() {
+      $( document ).tooltip();
+    });
+  </script>
+  <style>
+    label {
+      display: inline-block;
+      width: 2em;
+    }
+  </style>
 </head>
 <body>
 
-  <div class="coluna-1 teste"> 
-        <h3>Aprender</h3>
-        <ul>
-          teste
-        </ul>
-  </div>
-  <div class="coluna-2"> 
-    <h3>Cursos</h3>
-  <ul>
-    teste
-  </ul>
-  </div>
-  <div class="coluna-3"> 
-    <h3>Ensinar</h3>
-    <ul>
-      teste
-    </ul>
+  <div class="logo_header"></div>
+
+  <div class="container">
+    <div class="profile">
+      <p>
+        <img src="img/dona4.png">
+        Grace Hooper
+      </p>
     </div>
+
+
+    <div class="column">
+      <h1>Quem pode te ensinar:</h1>
+
+      <p>
+        <img src="img/dona4.png" title="Ana Martins">
+        <span style=""><strong>Ana Martins</strong> pode ensinar <strong>Culinaria</strong>. <button>+</button></span>
+
+      </p>
+
+      <p>
+        <img src="img/dona4.png">
+        <span style=""><strong>Marta</strong> pode ensinar <strong>Programação</strong> <button>+</button></span>
+
+      </p>
+
+      <p>
+        <img src="img/dona4.png">
+        <span style=""><strong>Daniele</strong> pode ensinar <strong>Direito da Mulher</strong> <button>+</button></span>
+      </p>
+    </div>
+
+
+    <div class="column">
+      <h1> Quem você pode aprender:</h1>
+    </div>
+  </div>
+  <div>
 
 </body>
 </html>
