@@ -28,23 +28,32 @@
       <p>
         <img src="img/dona4.png">
         <%= @PessoaPerfil.nome %>
-         <a href="/pessoas/:id">Editar</a>
+         <a href="/pessoas/<%=@PessoaPerfil.id%>/edit">Editar</a>
       </p>
 
         <h2>Quer Aprender</h2>
-            <h3>Esporte, Matemática e Programação</h3>
+            <%
+              @ListaHabilidades = "" 
+              @PessoaPerfil.habilidades_aprender.group(:nome).map { |e| @ListaHabilidades += e.nome + ", " }
+
+            %>
+            <h3><%= @ListaHabilidades[0..-3] %></h3>
 
         <h2>Quer Ensinar</h2>
-            <h3>Direito da mulher</h3>
+            <%
+              @ListaHabilidades2 = ""
+              @PessoaPerfil.habilidades_ensinar.group(:nome).map { |e| @ListaHabilidades2 += e.nome + ", " }
+            %>
+            <h3><%= @ListaHabilidades2[0..-3] %></h3>
     </div>
 
 
     <div class="column">
-      <h1>Quem pode te ensinar:</h1>
+      <h1>Quem pode te ensinar</h1>
       <% @Pessoas.each do |pessoa| %>
         <p>
           <img src="img/dona4.png" title="<%= pessoa.nome %>">
-          <span style=""><strong><%= pessoa.nome %></strong> pode ensinar <strong><%= pessoa.habilidades_ensinar.sample.nome %></strong>. <a href="mailto: <%= pessoa.email %>"><button>Saiba mais</button></a></span>
+          <span style=""><strong><%= pessoa.nome %></strong> pode te ensinar <strong><%= pessoa.habilidades_ensinar.sample.nome %></strong>. <a href="mailto: <%= pessoa.email %>"><button>Saiba mais</button></a></span>
 
         </p>
         
@@ -53,7 +62,7 @@
 
 
     <div class="column">
-      <h1> Quem você pode ensinar:</h1>
+      <h1> Quem você pode ensinar</h1>
       <% @Pessoas.each do |pessoa| %>
         <p>
           <img src="img/dona4.png" title="<%= pessoa.nome %>">
