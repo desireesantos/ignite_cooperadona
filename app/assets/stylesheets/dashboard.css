@@ -1,0 +1,75 @@
+body{
+    width:100%;
+    position: absolute;
+    height:50px;
+}
+
+h1 {
+    font-size: large;
+    font-weight: 700;
+    text-align: center;
+}
+
+img{
+    width: 18%;
+    height: 12%;
+    display: inline-block;
+}
+
+p {
+    width: 300px;
+    padding: 20px;
+}
+
+p img {
+    padding: 2px;
+    margin: 0 10px 0 0;
+}
+
+button {
+    border: none;
+    background-color: darkgray;
+    color: #ffffff;
+}
+
+span {
+    float: right;
+    width: 200px;
+    margin-top: 10px;
+}
+
+.logo_header {
+    height:140px;
+    background-image: url("logo.png");
+    background-repeat:no-repeat;
+    background-position:center;
+}
+
+.container{
+    width:70%;
+    height: 500px;
+    margin-left: 150px;
+    display: inline-flex;
+    color: gray;
+}
+
+.container .profile {
+    width: 30%;
+    height: 100%;
+    display: inline-block;
+    background-image: url("color_profile.png");
+}
+
+.container .profile p img {
+    width: 50%;
+    vertical-align: middle;
+}
+
+.container .column {
+    width: 34%;
+    height: 100%;
+    margin-left: 3px;
+    display: inline-block;
+    background-image: url("color_column.png");
+}
+
