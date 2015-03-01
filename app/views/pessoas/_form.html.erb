@@ -26,7 +26,7 @@
     <label><h1>Ensinaaaaaaaaaaaaaaaaaaaaaar</h1></label><br>
     <% Habilidade.all.uniq(:nome).each do |hab| %>
       <label>
-        <%= check_box("pessoa", "habilidades_ensinar", {:multiple => true}, hab.nome, nil) %>
+        <%= check_box("pessoa", "habilidades_ensinar", {:multiple => true}, hab.id, nil) %>
         <%= hab.nome %>
       </label><br>
     <% end %>
