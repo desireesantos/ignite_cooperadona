@@ -17,14 +17,14 @@
     <%= f.label :email %><br>
     <%= f.text_field :email %><br>
     <label>Aprender</label><br>
-    <% Habilidade.all.uniq(:nome).each do |hab| %>
+    <% Habilidade.group(:nome).each do |hab| %>
       <label>
         <%= check_box("pessoa", "habilidades_aprender", {:multiple => true}, hab.id, nil) %>
         <%= hab.nome %>
       </label><br>
     <% end %>
     <label><h1>Ensinaaaaaaaaaaaaaaaaaaaaaar</h1></label><br>
-    <% Habilidade.all.uniq(:nome).each do |hab| %>
+    <% Habilidade.group(:nome).each do |hab| %>
       <label>
         <%= check_box("pessoa", "habilidades_ensinar", {:multiple => true}, hab.id, nil) %>
         <%= hab.nome %>

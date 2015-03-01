@@ -24,10 +24,14 @@ class PessoasController < ApplicationController
   # POST /pessoas
   # POST /pessoas.json
   def create
+    habilidades_aprender = Habilidade.find(params[:pessoa][:habilidades_aprender])
+    habilidades_ensinar = Habilidade.find(params[:pessoa][:habilidades_ensinar])
     @pessoa = Pessoa.new(pessoa_params)
 
     respond_to do |format|
       if @pessoa.save
+        habilidades = habilidades_aprender.map{ |h| hab = h.dup; hab.pessoa_aprende_id = @pessoa.id; hab.save }
+        habilidades = habilidades_ensinar.map{ |h| hab = h.dup; hab.pessoa_ensina_id = @pessoa.id; hab.save }
         format.html { redirect_to @pessoa, notice: 'Pessoa was successfully created.' }
         format.json { render action: 'show', status: :created, location: @pessoa }
       else
@@ -40,10 +44,12 @@ class PessoasController < ApplicationController
   # PATCH/PUT /pessoas/1
   # PATCH/PUT /pessoas/1.json
   def update
-    raise params[:pessoa][:habilidades_aprender].to_s
-    raise params.to_yaml
+    habilidades_aprender = Habilidade.find(params[:pessoa][:habilidades_aprender])
+    habilidades_ensinar = Habilidade.find(params[:pessoa][:habilidades_ensinar])
     respond_to do |format|
       if @pessoa.update(pessoa_params)
+        habilidades = habilidades_aprender.map{ |h| hab = h.dup; hab.pessoa_aprende_id = @pessoa.id; hab.save }
+        habilidades = habilidades_ensinar.map{ |h| hab = h.dup; hab.pessoa_ensina_id = @pessoa.id; hab.save }
         format.html { redirect_to @pessoa, notice: 'Pessoa was successfully updated.' }
         format.json { head :no_content }
       else
