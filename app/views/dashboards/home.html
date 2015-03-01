@@ -26,12 +26,12 @@
   <div class="container">
     <div class="profile">
       <p>
-        <img src="img/dona4.png">
-        <%= @PessoaPerfil.nome %>
-         <a href="/pessoas/<%=@PessoaPerfil.id%>/edit">Editar</a>
+        <a href="/pessoas/<%=@PessoaPerfil.id%>/edit"><button class="botao-editar">Editar Perfil</button></a>
+        <img src="img/dona<%= Random.new.rand(1..9) %>.png">
+        <strong><p class="nome-profile"><%= @PessoaPerfil.nome %></p></strong>
       </p>
 
-        <h2>Quer Aprender</h2>
+        <h2 style="margin-top: -60px">Quer Aprender:</h2>
             <%
               @ListaHabilidades = "" 
               @PessoaPerfil.habilidades_aprender.group(:nome).map { |e| @ListaHabilidades += e.nome + ", " }
@@ -39,7 +39,7 @@
             %>
             <h3><%= @ListaHabilidades[0..-3] %></h3>
 
-        <h2>Quer Ensinar</h2>
+        <h2>Quer Ensinar:</h2>
             <%
               @ListaHabilidades2 = ""
               @PessoaPerfil.habilidades_ensinar.group(:nome).map { |e| @ListaHabilidades2 += e.nome + ", " }
@@ -49,10 +49,10 @@
 
 
     <div class="column">
-      <h1>Quem pode te ensinar</h1>
+      <h1>Quem pode te ensinar:</h1>
       <% @Pessoas.each do |pessoa| %>
         <p>
-          <img src="img/dona4.png" title="<%= pessoa.nome %>">
+          <img src="img/dona<%= Random.new.rand(1..9) %>.png" title="<%= pessoa.nome %>">
           <span style=""><strong><%= pessoa.nome %></strong> pode te ensinar <strong><%= pessoa.habilidades_ensinar.sample.nome %></strong>. <a href="mailto: <%= pessoa.email %>"><button>Saiba mais</button></a></span>
 
         </p>
@@ -62,10 +62,10 @@
 
 
     <div class="column">
-      <h1> Quem você pode ensinar</h1>
+      <h1> Quem você pode ensinar:</h1>
       <% @Pessoas.each do |pessoa| %>
         <p>
-          <img src="img/dona4.png" title="<%= pessoa.nome %>">
+          <img src="img/dona<%= Random.new.rand(1..9) %>.png" title="<%= pessoa.nome %>">
           <span style=""><strong><%= pessoa.nome %></strong> quer aprender <strong><%= pessoa.habilidades_ensinar.sample.nome %></strong>. <a href= "mailto: <%= pessoa.email %>"> <button>Saiba mais</button></a></span>
 
         </p>

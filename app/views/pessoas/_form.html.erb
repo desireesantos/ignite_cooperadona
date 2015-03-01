@@ -11,27 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nome %><br>
-    <%= f.text_field :nome %><br>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %><br>
-    <label>Aprender</label><br>
-    <% Habilidade.group(:nome).each do |hab| %>
-      <label>
-        <%= check_box("pessoa", "habilidades_aprender", {:multiple => true}, hab.id, nil) %>
-        <%= hab.nome %>
-      </label><br>
-    <% end %>
-    <label><h1>Ensinaaaaaaaaaaaaaaaaaaaaaar</h1></label><br>
-    <% Habilidade.group(:nome).each do |hab| %>
-      <label>
-        <%= check_box("pessoa", "habilidades_ensinar", {:multiple => true}, hab.id, nil) %>
-        <%= hab.nome %>
-      </label><br>
-    <% end %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <div class="logo_header"></div>
+
+  <div class="campo">
+    <div class="field">
+      <strong><%= f.label :nome %></strong>
+      <%= f.text_field :nome, class: 'input' %><br><br>
+      <strong><%= f.label :email %></strong>
+      <%= f.text_field :email, class: 'input margin-input' %>
+      <label><h5>O que você quer aprender?</h5></label><br>
+      <% Habilidade.group(:nome).each do |hab| %>
+        <label>
+          <%= check_box("pessoa", "habilidades_aprender", {:multiple => true}, hab.id, nil) %>
+          <%= hab.nome %>
+        </label><br>
+      <% end %>
+      <label><h5>O que você pode ensinar?</h5></label><br>
+      <% Habilidade.group(:nome).each do |hab| %>
+        <label>
+          <%= check_box("pessoa", "habilidades_ensinar", {:multiple => true}, hab.id, nil) %>
+          <%= hab.nome %>
+        </label><br>
+      <% end %>
+    </div>
+    <div class="actions">
+      <button class="botao-salvar-perfil"> <%= f.submit 'Salvar' %> </button>
+    </div>
+  <% end %>
+  </div>  

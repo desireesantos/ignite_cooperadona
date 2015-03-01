@@ -24,15 +24,23 @@ class PessoasController < ApplicationController
   # POST /pessoas
   # POST /pessoas.json
   def create
-    habilidades_aprender = Habilidade.find(params[:pessoa][:habilidades_aprender])
-    habilidades_ensinar = Habilidade.find(params[:pessoa][:habilidades_ensinar])
+    if params[:pessoa][:habilidades_aprender] != nil
+      habilidades_aprender = Habilidade.find(params[:pessoa][:habilidades_aprender])
+    else 
+      habilidades_aprender = []
+    end
+    if params[:pessoa][:habilidades_ensinar] != nil
+      habilidades_ensinar = Habilidade.find(params[:pessoa][:habilidades_ensinar])
+    else 
+      habilidades_ensinar = []
+    end
     @pessoa = Pessoa.new(pessoa_params)
 
     respond_to do |format|
       if @pessoa.save
         habilidades = habilidades_aprender.map{ |h| hab = h.dup; hab.pessoa_aprende_id = @pessoa.id; hab.save }
         habilidades = habilidades_ensinar.map{ |h| hab = h.dup; hab.pessoa_ensina_id = @pessoa.id; hab.save }
-        format.html { redirect_to @pessoa, notice: 'Pessoa was successfully created.' }
+        format.html { redirect_to '/' }
         format.json { render action: 'show', status: :created, location: @pessoa }
       else
         format.html { render action: 'new' }
@@ -44,13 +52,21 @@ class PessoasController < ApplicationController
   # PATCH/PUT /pessoas/1
   # PATCH/PUT /pessoas/1.json
   def update
-    habilidades_aprender = Habilidade.find(params[:pessoa][:habilidades_aprender])
-    habilidades_ensinar = Habilidade.find(params[:pessoa][:habilidades_ensinar])
+    if params[:pessoa][:habilidades_aprender] != nil
+      habilidades_aprender = Habilidade.find(params[:pessoa][:habilidades_aprender])
+    else 
+      habilidades_aprender = []
+    end
+    if params[:pessoa][:habilidades_ensinar] != nil
+      habilidades_ensinar = Habilidade.find(params[:pessoa][:habilidades_ensinar])
+    else 
+      habilidades_ensinar = []
+    end
     respond_to do |format|
       if @pessoa.update(pessoa_params)
         habilidades = habilidades_aprender.map{ |h| hab = h.dup; hab.pessoa_aprende_id = @pessoa.id; hab.save }
         habilidades = habilidades_ensinar.map{ |h| hab = h.dup; hab.pessoa_ensina_id = @pessoa.id; hab.save }
-        format.html { redirect_to @pessoa, notice: 'Pessoa was successfully updated.' }
+        format.html { redirect_to '/' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
