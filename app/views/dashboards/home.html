@@ -27,35 +27,34 @@
     <div class="profile">
       <p>
         <img src="img/dona4.png">
-        Grace Hooper
+        <%= @PessoaPerfil.nome %>
       </p>
     </div>
 
 
     <div class="column">
       <h1>Quem pode te ensinar:</h1>
+      <% @Pessoas.each do |pessoa| %>
+        <p>
+          <img src="img/dona4.png" title="<%= pessoa.nome %>">
+          <span style=""><strong><%= pessoa.nome %></strong> pode ensinar <strong><%= pessoa.habilidades_ensinar.sample.nome %></strong>. <a href="mailto: <%= pessoa.email %>"><button>Saiba mais</button></a></span>
 
-      <p>
-        <img src="img/dona4.png" title="Ana Martins">
-        <span style=""><strong>Ana Martins</strong> pode ensinar <strong>Culinaria</strong>. <button>+</button></span>
-
-      </p>
-
-      <p>
-        <img src="img/dona4.png">
-        <span style=""><strong>Marta</strong> pode ensinar <strong>Programação</strong> <button>+</button></span>
-
-      </p>
-
-      <p>
-        <img src="img/dona4.png">
-        <span style=""><strong>Daniele</strong> pode ensinar <strong>Direito da Mulher</strong> <button>+</button></span>
-      </p>
+        </p>
+        
+      <% end %>
     </div>
 
 
     <div class="column">
-      <h1> Quem você pode aprender:</h1>
+      <h1> Quem você pode ensinar:</h1>
+      <% @Pessoas.each do |pessoa| %>
+        <p>
+          <img src="img/dona4.png" title="<%= pessoa.nome %>">
+          <span style=""><strong><%= pessoa.nome %></strong> quer aprender <strong><%= pessoa.habilidades_ensinar.sample.nome %></strong>. <a href= "mailto: <%= pessoa.email %>"> <button>Saiba mais</button></a></span>
+
+        </p>
+        
+      <% end %>
     </div>
   </div>
   <div>

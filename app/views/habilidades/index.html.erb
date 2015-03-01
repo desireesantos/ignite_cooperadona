@@ -15,7 +15,6 @@
   <tbody>
     <% @habilidades.each do |habilidade| %>
       <tr>
-        <td><%= habilidade.pessoa_id %></td>
         <td><%= habilidade.nome %></td>
         <td><%= habilidade.nivel %></td>
         <td><%= link_to 'Show', habilidade %></td>
