@@ -1,9 +1,13 @@
 <h1>Listing pessoas</h1>
 
+<fieldset>
 <table>
   <thead>
     <tr>
-      <th>Nome</th>
+      <th>Nome: </th>
+      <th>Contato: </th>
+    </tr>
+    <tr>
       <th></th>
       <th></th>
       <th></th>
@@ -14,14 +18,18 @@
     <% @pessoas.each do |pessoa| %>
       <tr>
         <td><%= pessoa.nome %></td>
+        <td><%= pessoa.email %></td>
+      </tr>
+      <tr>
         <td><%= link_to 'Show', pessoa %></td>
         <td><%= link_to 'Edit', edit_pessoa_path(pessoa) %></td>
         <td><%= link_to 'Destroy', pessoa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
-</table>
 
+</table>
+</fieldset>
 <br>
 
 <%= link_to 'New Pessoa', new_pessoa_path %>

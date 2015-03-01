@@ -24,8 +24,6 @@ class PessoasController < ApplicationController
   # POST /pessoas
   # POST /pessoas.json
   def create
-    
-    raise params[:habilidades].to_yaml
     @pessoa = Pessoa.new(pessoa_params)
 
     respond_to do |format|
@@ -42,6 +40,8 @@ class PessoasController < ApplicationController
   # PATCH/PUT /pessoas/1
   # PATCH/PUT /pessoas/1.json
   def update
+    raise params[:pessoa][:habilidades_aprender].to_s
+    raise params.to_yaml
     respond_to do |format|
       if @pessoa.update(pessoa_params)
         format.html { redirect_to @pessoa, notice: 'Pessoa was successfully updated.' }
@@ -71,6 +71,6 @@ class PessoasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pessoa_params
-      params.require(:pessoa).permit(:nome)
+      params.require(:pessoa).permit(:nome, :email)
     end
 end

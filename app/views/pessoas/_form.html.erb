@@ -14,8 +14,21 @@
   <div class="field">
     <%= f.label :nome %><br>
     <%= f.text_field :nome %><br>
-    <% 10.times do |i| %>
-      <%= select_tag "habilidades#{i}", options_from_collection_for_select(Habilidade.all, "id", "nome")%> <%= text_field_tag "nivel#{i}", 0, maxlength: 1 %><br>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %><br>
+    <label>Aprender</label><br>
+    <% Habilidade.all.uniq(:nome).each do |hab| %>
+      <label>
+        <%= check_box("pessoa", "habilidades_aprender", {:multiple => true}, hab.id, nil) %>
+        <%= hab.nome %>
+      </label><br>
+    <% end %>
+    <label><h1>Ensinaaaaaaaaaaaaaaaaaaaaaar</h1></label><br>
+    <% Habilidade.all.uniq(:nome).each do |hab| %>
+      <label>
+        <%= check_box("pessoa", "habilidades_ensinar", {:multiple => true}, hab.nome, nil) %>
+        <%= hab.nome %>
+      </label><br>
     <% end %>
   </div>
   <div class="actions">
