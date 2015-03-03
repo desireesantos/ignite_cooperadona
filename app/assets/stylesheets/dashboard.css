@@ -141,6 +141,23 @@ a button:hover {
     background-image: url("color_column.png");
 }
 
+
+.depoiments {
+    width: 70%;
+    height: 95px;
+    margin-top: 5px;
+    display: block;
+    background-image: url("color_column.png");
+    margin-left: 200px ;
+}
+
+
+
+
+
+
+/*Refatorar*/
+
 h5 {
     background: #C4B3D5;
     font-size: 15px;
