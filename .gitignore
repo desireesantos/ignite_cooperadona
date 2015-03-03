@@ -17,5 +17,6 @@
 /log/*.log
 /tmp
 Gemfile-MRI19
+Gemfile-MRI19.lock
 
 *.sublime-*
